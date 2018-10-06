@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_screen_background"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
+        android:contentDescription="@string/logo_description"
+        android:scaleType="centerInside"
+        android:src="@drawable/dicee_logo"
+
+        app:layout_constraintBottom_toTopOf="@+id/guideline_bottomLogo"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_rightLogo"
+        app:layout_constraintStart_toEndOf="@+id/guideline_leftLogo"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_topLogo" />
+
+    <ImageView
+        android:id="@+id/dice_1"
+
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
+        android:contentDescription="@string/dice"
+
+        android:src="@drawable/dice1"
+
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_bottomDice"
+        app:layout_constraintEnd_toStartOf="@+id/dice_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_topDice" />
+
+    <ImageView
+        android:id="@+id/dice_2"
+
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
+        android:contentDescription="@string/dice"
+
+        android:src="@drawable/dice1"
+
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_bottomDice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dice_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_topDice" />
+
+
+    <Button
+        android:id="@+id/dice_button"
+        style="@style/Widget.AppCompat.Button.Colored"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/dice_button"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_topButton" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_leftLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_rightLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_topLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.01" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_bottomLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_topDice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_bottomDice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_topButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
+
+</android.support.constraint.ConstraintLayout>

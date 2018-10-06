@@ -22,23 +22,35 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.dice6
     };
 
+    private static final String DICE1 = "DICE1";
+    private static final String DICE2 = "DICE2";
+
+    private int dice1;
+    private int dice2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ImageView diceImage1 = (ImageView)findViewById(R.id.dice_1);
-        final ImageView diceImage2 = (ImageView)findViewById(R.id.dice_2);
-        diceImage1.setImageResource(dicts[0]);
-        diceImage2.setImageResource(dicts[0]);
+        final ImageView diceImage1 = findViewById(R.id.dice_1);
+        final ImageView diceImage2 = findViewById(R.id.dice_2);
 
-        final Button roll = (Button)findViewById(R.id.dice_button);
+        if (savedInstanceState != null) {
+            dice1 = savedInstanceState.getInt(DICE1);
+            dice2 = savedInstanceState.getInt(DICE2);
+        }
+
+        diceImage1.setImageResource(dicts[dice1]);
+        diceImage2.setImageResource(dicts[dice2]);
+
+        final Button roll = findViewById(R.id.dice_button);
         roll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                final ImageView diceImage1 = (ImageView)findViewById(R.id.dice_1);
-                final ImageView diceImage2 = (ImageView)findViewById(R.id.dice_2);
+                final ImageView diceImage1 = findViewById(R.id.dice_1);
+                final ImageView diceImage2 = findViewById(R.id.dice_2);
                 diceImage1.setImageResource(dicts[0]);
                 diceImage2.setImageResource(dicts[0]);
 
@@ -46,41 +58,32 @@ public class MainActivity extends AppCompatActivity {
 
                 roll.setClickable(false);
 
-                try {
-                    Thread thread = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Thread.sleep(2000);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
+                roll.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dice1 = rand.nextInt(6);
+                        dice2 = rand.nextInt(6);
 
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    final int dice_1 = rand.nextInt(6);
-                                    final int dice_2 = rand.nextInt(6);
+                        final ImageView diceImage1 = findViewById(R.id.dice_1);
+                        final ImageView diceImage2 = findViewById(R.id.dice_2);
+                        diceImage1.setImageResource(dicts[dice1]);
+                        diceImage2.setImageResource(dicts[dice2]);
 
-                                    final ImageView diceImage1 = (ImageView)findViewById(R.id.dice_1);
-                                    final ImageView diceImage2 = (ImageView)findViewById(R.id.dice_2);
-                                    diceImage1.setImageResource(dicts[dice_1]);
-                                    diceImage2.setImageResource(dicts[dice_2]);
+                        final int total = dice1 + dice2 + 2;
+                        final String text = getString(R.string.dice_result) + " " + total;
+                        Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
 
-                                    final int total = dice_1 + dice_2 + 2;
-                                    final String text = "The number is " + total;
-                                    Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
-
-                                    roll.setClickable(true);
-                                }
-                            });
-                        }
-                    });
-                    thread.start();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                        roll.setClickable(true);
+                    }
+                }, 2000);
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt(DICE1, dice1);
+        savedInstanceState.putInt(DICE2, dice2);
+        super.onSaveInstanceState(savedInstanceState);
     }
 }

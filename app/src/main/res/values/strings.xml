@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">dicee</string>
+    <string name="app_name">Dice Game</string>
     <string name="dice_button">Roll</string>
     <string name="dice_button_popup">Guess a number!</string>
     <string name="logo_description">Logo description</string>
     <string name="dice">Dice</string>
+    <string name="dice_result">The number is</string>
 </resources>

@@ -36,10 +36,10 @@
 
         android:src="@drawable/dice1"
 
-        app:layout_constraintBottom_toBottomOf="@+id/guideline_bottomDice"
         app:layout_constraintEnd_toStartOf="@+id/dice_2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline_topDice" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_topDice"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_bottomDice" />
 
     <ImageView
         android:id="@+id/dice_2"

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">骰子游戏</string>
+    <string name="dice_button">丢骰子</string>
+    <string name="dice_button_popup">猜骰子数字</string>
+    <string name="dice">Dice</string>
+    <string name="logo_description">Logo description</string>
+    <string name="dice_result">骰子数字是</string>
+</resources>

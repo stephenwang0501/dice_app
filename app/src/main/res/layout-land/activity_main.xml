@@ -21,9 +21,9 @@
         android:scaleType="centerInside"
         android:src="@drawable/dicee_logo"
 
-        app:layout_constraintBottom_toTopOf="@+id/guideline_bottomLogo"
         app:layout_constraintEnd_toStartOf="@+id/guideline_rightLogo"
         app:layout_constraintStart_toEndOf="@+id/guideline_leftLogo"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_bottomLogo"
         app:layout_constraintTop_toBottomOf="@+id/guideline_topLogo" />
 
     <ImageView
@@ -36,10 +36,10 @@
 
         android:src="@drawable/dice1"
 
-        app:layout_constraintBottom_toBottomOf="@+id/guideline_bottomDice"
-        app:layout_constraintEnd_toStartOf="@+id/dice_2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline_topDice" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline_rightDice"
+        app:layout_constraintStart_toStartOf="@+id/guideline_leftDice"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/dice_2" />
 
     <ImageView
         android:id="@+id/dice_2"
@@ -51,10 +51,10 @@
 
         android:src="@drawable/dice1"
 
-        app:layout_constraintBottom_toBottomOf="@+id/guideline_bottomDice"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/dice_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_topDice" />
+        app:layout_constraintStart_toEndOf="@+id/guideline_leftDice"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_rightDice"
+        app:layout_constraintTop_toBottomOf="@+id/dice_1"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
     <Button
@@ -66,57 +66,57 @@
 
         android:text="@string/dice_button"
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_topButton" />
+        app:layout_constraintStart_toEndOf="@+id/guideline_leftButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline_leftLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.1" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline_rightLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintGuide_percent="0.4" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline_topLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.01" />
+        app:layout_constraintGuide_percent="0.1" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline_bottomLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.60" />
+        app:layout_constraintGuide_percent="0.9" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline_topDice"
+        android:id="@+id/guideline_leftDice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.50" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline_bottomDice"
+        android:id="@+id/guideline_rightDice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.80" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline_topButton"
+        android:id="@+id/guideline_leftButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.80" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
 
 </android.support.constraint.ConstraintLayout>
